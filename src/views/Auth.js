@@ -1,9 +1,6 @@
 // React
 import React from "react";
 
-// CSS
-import "./Auth.css";
-
 // Components
 import AuthForm from "../components/AuthForm";
 
@@ -12,6 +9,9 @@ import { Button } from "@material-ui/core";
 
 // Firebase
 import { authService, firebaseInstance } from "../firebase";
+
+// CSS
+import "./Auth.css";
 
 function Auth() {
   const handleGoogleSignIn = async () => {

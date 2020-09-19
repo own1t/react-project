@@ -1,14 +1,14 @@
 // React
 import React, { useState } from "react";
 
-// CSS
-import "./AuthForm.css";
-
 // Material-ui
 import { Button } from "@material-ui/core";
 
 // Firebase
 import { authService } from "../firebase";
+
+// CSS
+import "./AuthForm.css";
 
 function Auth() {
   const [email, setEmail] = useState("");

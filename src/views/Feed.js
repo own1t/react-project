@@ -1,23 +1,43 @@
 // React
 import React, { useEffect, useState } from "react";
 
+// Components
+import PostBox from "../components/PostBox";
+import Post from "../components/Post";
+
+// Firebase
+import { dbService } from "../firebase";
+
 // CSS
 import "./Feed.css";
 
-// Components
-import PostBox from "../components/PostBox";
-
 function Feed({ userObj }) {
-  const [posts, newPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    //
+    dbService.collection("posts").onSnapshot((snapshot) => {
+      const postArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setPosts(postArray);
+    });
   }, []);
 
   return (
     <>
       <div className="feed">
         <PostBox userObj={userObj} />
+
+        <div class="feed__posts">
+          {posts.map((post, idx) => (
+            <Post
+              key={idx}
+              postObj={post}
+              isOwner={post.creatorId === userObj.uid}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

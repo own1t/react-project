@@ -1,18 +1,18 @@
 // React
 import React, { useState } from "react";
 
-// CSS
-import "./PostBox.css";
-
-// Firebase
-import { dbService, firebaseInstance, storageService } from "../firebase";
-
 // uuid
 import { v4 as uuid } from "uuid";
 
 // Material-ui
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import { Button } from "@material-ui/core";
+
+// Firebase
+import { dbService, firebaseInstance, storageService } from "../firebase";
+
+// CSS
+import "./PostBox.css";
 
 function PostBox({ userObj }) {
   const [post, setPost] = useState("");
