@@ -4,9 +4,6 @@ import React, { useEffect, useState } from "react";
 // React Router Dom
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// CSS
-import "./App.css";
-
 // Views
 import Auth from "./views/Auth";
 import Feed from "./views/Feed";
@@ -20,6 +17,9 @@ import Footer from "./components/Footer";
 // Firebase
 import { authService } from "./firebase";
 
+// CSS
+import "./App.css";
+
 function App() {
   const [init, setInit] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,6 +32,7 @@ function App() {
         setUserObj({
           displayName: user.displayName,
           uid: user.uid,
+          updateProfile: (args) => user.updateProfile(args),
         });
       } else {
         setIsAuthenticated(false);
@@ -41,7 +42,16 @@ function App() {
     });
   }, []);
 
-  console.log(userObj);
+  const refreshUser = () => {
+    const user = authService.currentUser;
+    setUserObj({
+      displayName: user.displayName,
+      uid: user.uid,
+      updateProfile: (args) => user.updateProfile(args),
+    });
+  };
+
+  // console.log(userObj);
 
   return (
     <div className="app">
@@ -52,19 +62,19 @@ function App() {
             {isAuthenticated ? (
               <>
                 <Route exact path="/">
-                  <Feed />
+                  <Feed userObj={userObj} refreshUser={refreshUser} />
                 </Route>
 
                 <Route exact path="/profile">
-                  <Profile />
+                  <Profile userObj={userObj} refreshUser={refreshUser} />
                 </Route>
 
                 <Route exact path="/messenger">
-                  <Messenger />
+                  <Messenger userObj={userObj} refreshUser={refreshUser} />
                 </Route>
 
                 <Route exact path="/more">
-                  <More />
+                  <More userObj={userObj} refreshUser={refreshUser} />
                 </Route>
               </>
             ) : (
