@@ -61,13 +61,17 @@ function Messenger({ userObj }) {
           <SendIcon
             className="messenger__iconButton"
             type="submit"
-            variant="conatined"
+            variant="contained"
             disabled={!input}
           />
         </form>
 
         <div className="messenger__messages">
-          <Message userObj={userObj} message="" />
+          <FlipMove>
+            {messages.map((message, idx) => (
+              <Message key={idx} userObj={userObj} message={message} />
+            ))}
+          </FlipMove>
         </div>
       </div>
     </>
