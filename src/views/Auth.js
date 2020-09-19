@@ -6,6 +6,7 @@ import AuthForm from "../components/AuthForm";
 
 // Material-ui
 import { Button } from "@material-ui/core";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 // Firebase
 import { authService, firebaseInstance } from "../firebase";

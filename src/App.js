@@ -57,7 +57,7 @@ function App() {
     <div className="app">
       {init ? (
         <Router>
-          <Footer />
+          {isAuthenticated && <Footer />}
           <Switch>
             {isAuthenticated ? (
               <>

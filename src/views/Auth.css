@@ -1,0 +1,13 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth__buttons {
+  display: flex !important;
+  color: #1db954 !important;
+}
+
+.auth__buttons:hover {
+}

@@ -4,14 +4,15 @@
   z-index: 1;
   background-color: black;
   width: 100%;
-  max-width: 500px;
+  max-width: 375px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .footer__icons {
   color: #1db954;
   /* background-color: white; */
+  padding: 20px;
 }
 
 .footer__icons:hover {

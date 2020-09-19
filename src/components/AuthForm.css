@@ -1,0 +1,35 @@
+.authForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 350px;
+}
+
+.authForm > input {
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 99px;
+  border: 1px solid #1db954;
+}
+
+.authForm__buttons {
+  margin: 15px !important;
+  margin-top: 25px !important;
+  padding: 10px 20px !important;
+  border-radius: 99px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  background-color: #1db954 !important;
+  color: white !important;
+}
+
+.authForm__buttons:hover {
+  background-color: white !important;
+  color: #1db954 !important;
+  border: 1px solid #1db954 !important;
+}
+
+.authForm__switch {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  cursor: pointer;
+}

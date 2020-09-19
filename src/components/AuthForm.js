@@ -74,9 +74,9 @@ function Auth() {
           {error && <span className="authForm__error">{error}</span>}
         </form>
 
-        <Button className="authForm__switch" onClick={toggleAccount}>
+        <span className="authForm__switch" onClick={toggleAccount}>
           {newAccount ? "Sign In" : "Create Account"}
-        </Button>
+        </span>
       </div>
     </>
   );

@@ -12,6 +12,12 @@ const Message = forwardRef(({ userObj, message }, ref) => {
 
   const messagesEndRef = useRef(null);
 
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(scrollToBottom, [message]);
+
   return (
     <>
       <div className={`message ${isSender && "message__sender"}`} ref={ref}>
