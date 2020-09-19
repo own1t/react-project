@@ -1,11 +1,19 @@
-import React from "react";
+// React
+import React, { useEffect, useState } from "react";
 
+// CSS
 import "./Feed.css";
 
-function Feed() {
+function Feed({ userObj }) {
+  const [posts, newPosts] = useState([]);
+
+  useEffect(() => {
+    //
+  }, []);
+
   return (
     <>
-      <div className="feed">Feed</div>
+      <div className="feed"></div>
     </>
   );
 }
