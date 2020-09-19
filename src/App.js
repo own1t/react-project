@@ -10,6 +10,9 @@ import "./App.css";
 // Views
 import Auth from "./views/Auth";
 import Feed from "./views/Feed";
+import Profile from "./views/Profile";
+import Messenger from "./views/Messenger";
+import More from "./views/More";
 
 // Components
 import Footer from "./components/Footer";
@@ -38,15 +41,30 @@ function App() {
     });
   }, []);
 
+  console.log(userObj);
+
   return (
     <div className="app">
       {init ? (
         <Router>
+          <Footer />
           <Switch>
             {isAuthenticated ? (
               <>
-                <Route path="/">
+                <Route exact path="/">
                   <Feed />
+                </Route>
+
+                <Route exact path="/profile">
+                  <Profile />
+                </Route>
+
+                <Route exact path="/messenger">
+                  <Messenger />
+                </Route>
+
+                <Route exact path="/more">
+                  <More />
                 </Route>
               </>
             ) : (
