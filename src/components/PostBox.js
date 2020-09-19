@@ -77,7 +77,9 @@ function PostBox({ userObj }) {
               maxLength={120}
               placeholder="What's on your mind?"
             />
-            <ArrowUpwardIcon type="submit">Post</ArrowUpwardIcon>
+            <ArrowUpwardIcon className="postBox__icon" type="submit">
+              Post
+            </ArrowUpwardIcon>
           </div>
 
           <label htmlFor="attachment" className="postBox__fileInput">
@@ -99,7 +101,9 @@ function PostBox({ userObj }) {
                 alt=""
               />
               <div className="postBox__attachmentClear">
-                <Button onClick={handleFileClear}>Remove</Button>
+                <Button id="postBox__removeButton" onClick={handleFileClear}>
+                  Remove
+                </Button>
               </div>
             </div>
           )}

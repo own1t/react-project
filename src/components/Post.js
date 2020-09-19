@@ -56,17 +56,28 @@ function Post({ postObj, isOwner }) {
           </>
         ) : (
           <>
-            <h4>{postObj.text}</h4>
+            <div className="post__header">
+              <span className="post__creator">@{postObj.creator}</span>
+              {isOwner && (
+                <>
+                  <div className="post__actions">
+                    <EditIcon
+                      className="post__editIcon"
+                      onClick={toggleEditing}
+                      style={{ marginRight: "7px" }}
+                    />
+
+                    <DeleteIcon
+                      className="post__deleteIcon"
+                      onClick={handleDelete}
+                    />
+                  </div>
+                </>
+              )}
+            </div>
+            <p className="post__content">{postObj.text}</p>
             {postObj.attachmentUrl && (
               <img src={postObj.attachmentUrl} alt="" />
-            )}
-            {isOwner && (
-              <>
-                <div className="post__actions">
-                  <EditIcon onClick={toggleEditing} />
-                  <DeleteIcon onClick={handleDelete} />
-                </div>
-              </>
             )}
           </>
         )}

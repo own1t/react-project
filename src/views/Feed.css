@@ -1,0 +1,15 @@
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.postBox {
+  margin-top: 40px;
+  width: 80%;
+}
+
+.feed__posts {
+  margin-top: 40px;
+  width: 80%;
+}
